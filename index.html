@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>কাজী নজরুল ইসলাম হল মসজিদ, বুয়েট</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <style>
+    :root[data-theme="light"] {
+      --bg-primary: #f6f8f2;
+      --bg-secondary: #ffffff;
+      --bg-elevated: #eef5ec;
+      --text-primary: #0d2818;
+      --text-secondary: #1e462b;
+      --text-muted: #3b6347;
+      --accent-green: #15803d;
+      --accent-green-bright: #16a34a;
+      --accent-glow: rgba(22, 163, 74, 0.55);
+      --border-color: #bbf7d0;
+      --border-strong: #16a34a;
+      --btn-bg: #ffffff;
+      --btn-text: #15803d;
+      --btn-hover-bg: #15803d;
+      --btn-hover-text: #ffffff;
+      --badge-bg: #dcfce7;
+      --badge-text: #14532d;
+      --shadow-card: 0 6px 24px rgba(13, 40, 24, 0.06);
+    }
+
+    :root[data-theme="dark"] {
+      --bg-primary: #071326;
+      --bg-secondary: #0f213c;
+      --bg-elevated: #162d50;
+      --text-primary: #ecfdf5;
+      --text-secondary: #a7f3d0;
+      --text-muted: #86efac;
+      --accent-green: #4ade80;
+      --accent-green-bright: #22c55e;
+      --accent-glow: rgba(74, 222, 128, 0.65);
+      --border-color: #1e3a5f;
+      --border-strong: #4ade80;
+      --btn-bg: #ffffff;
+      --btn-text: #0f5132;
+      --btn-hover-bg: #22c55e;
+      --btn-hover-text: #ffffff;
+      --badge-bg: rgba(74, 222, 128, 0.16);
+      --badge-text: #86efac;
+      --shadow-card: 0 8px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Baloo Da 2', cursive, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image:
+        radial-gradient(circle at 50% 0%, var(--accent-glow) 0%, transparent 58%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%2316a34a' stroke-width='0.75' stroke-opacity='0.14'%3E%3Cpath d='M40 4 L49 24 L70 15 L61 36 L80 40 L61 44 L70 65 L49 56 L40 76 L31 56 L10 65 L19 44 L0 40 L19 36 L10 15 L31 24 Z'/%3E%3Ccircle cx='40' cy='40' r='12'/%3E%3Crect x='28' y='28' width='24' height='24' transform='rotate(45 40 40)'/%3E%3C/g%3E%3C/svg%3E");
+      color: var(--text-primary);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Top corner icon buttons (strictly no text) */
+    .corner-controls {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      padding: 0.35rem;
+      border-radius: 9999px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .corner-controls-left {
+      position: fixed;
+      top: 1rem;
+      left: 1rem;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-strong);
+      padding: 0.35rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 14px var(--accent-glow);
+      transition: all 0.25s ease;
+    }
+
+    .corner-controls-left:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 22px var(--accent-glow);
+    }
+
+    .install-icon-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--accent-green);
+      transition: all 0.25s ease;
+    }
+
+    .install-icon-btn:hover {
+      background-color: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+    }
+
+    .install-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background-color: rgba(0, 0, 0, 0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .mode-icon-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+    }
+
+    .mode-icon-btn.active {
+      background-color: var(--accent-green);
+      color: #ffffff;
+      box-shadow: 0 0 12px var(--accent-glow);
+    }
+
+    :root[data-theme="dark"] .mode-icon-btn.active {
+      color: #071326;
+    }
+
+    .mode-icon-btn:hover:not(.active) {
+      background-color: var(--bg-elevated);
+    }
+
+    /* Islamic Architectural Hero Section on Home page */
+    .hero-screen {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 3.75rem 1.25rem 2.5rem;
+      max-width: 1220px;
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+    }
+
+    .mihrab-card {
+      position: relative;
+      width: 100%;
+      background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-elevated) 100%);
+      border: 2.5px solid var(--border-strong);
+      border-radius: 11rem 11rem 2rem 2rem;
+      padding: clamp(2.2rem, 5vh, 4rem) clamp(1.25rem, 4vw, 4rem) clamp(2rem, 4.5vh, 3.25rem);
+      box-shadow:
+        0 20px 60px rgba(13, 40, 24, 0.14),
+        0 0 36px var(--accent-glow),
+        inset 0 0 0 6px var(--bg-primary),
+        inset 0 0 0 8px var(--border-color);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    :root[data-theme="dark"] .mihrab-card {
+      box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.55),
+        0 0 42px var(--accent-glow),
+        inset 0 0 0 6px var(--bg-primary),
+        inset 0 0 0 8px var(--border-color);
+    }
+
+    /* Hanging Islamic Lanterns Animation */
+    @keyframes lanternSway {
+      0%, 100% { transform: rotate(-2.5deg); }
+      50% { transform: rotate(2.5deg); }
+    }
+
+    .lantern-left {
+      position: absolute;
+      top: 0;
+      left: clamp(1.5rem, 7vw, 5.5rem);
+      transform-origin: top center;
+      animation: lanternSway 5s ease-in-out infinite;
+      color: var(--accent-green);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .lantern-right {
+      position: absolute;
+      top: 0;
+      right: clamp(1.5rem, 7vw, 5.5rem);
+      transform-origin: top center;
+      animation: lanternSway 5.5s ease-in-out infinite reverse;
+      color: var(--accent-green);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .corner-arabesque {
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      color: var(--accent-green);
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .mosque-crest {
+      color: var(--accent-green);
+      margin-bottom: 1rem;
+      filter: drop-shadow(0 0 10px var(--accent-glow));
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 4.7vw, 4.35rem);
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--accent-green);
+      margin-bottom: 1.15rem;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 18px var(--accent-glow);
+      max-width: 1020px;
+    }
+
+    .islamic-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.85rem;
+      width: 100%;
+      max-width: 460px;
+      margin: 0.25rem auto 1.5rem;
+      color: var(--accent-green);
+    }
+
+    .islamic-divider-line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+    }
+
+    .hero-description {
+      font-size: clamp(1.15rem, 2.15vw, 1.85rem);
+      font-weight: 500;
+      line-height: 1.72;
+      color: var(--text-primary);
+      max-width: 960px;
+      margin-bottom: clamp(1.75rem, 3.5vh, 2.75rem);
+    }
+
+    /* Glowing Green CTA Buttons */
+    .cta-btn {
+      background-color: var(--btn-bg);
+      color: var(--btn-text);
+      border: 2px solid var(--border-strong);
+      box-shadow: 0 0 16px var(--accent-glow), inset 0 0 6px rgba(34, 197, 94, 0.15);
+      padding: 0.95rem 2rem;
+      font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+      font-weight: 700;
+      border-radius: 0.875rem;
+      cursor: pointer;
+      transition: all 0.28s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      text-decoration: none;
+    }
+
+    .cta-btn:hover,
+    .cta-btn:focus-visible {
+      background-color: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+      box-shadow: 0 0 26px var(--accent-glow), 0 0 42px var(--accent-glow);
+      transform: translateY(-2px);
+    }
+
+    /* Secondary navigation button */
+    .sub-nav-btn {
+      background-color: var(--bg-secondary);
+      color: var(--text-primary);
+      border: 1.5px solid var(--border-strong);
+      padding: 0.55rem 1.25rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 0.75rem;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .sub-nav-btn:hover {
+      background-color: var(--btn-hover-bg);
+      color: var(--btn-hover-text);
+      box-shadow: 0 0 14px var(--accent-glow);
+    }
+
+    /* Salah Box Styling */
+    .salah-box {
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-color);
+      border-radius: 1rem;
+      padding: 1.35rem 1.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-card);
+      transition: all 0.3s ease;
+    }
+
+    .salah-box.next-salah {
+      border-color: var(--border-strong);
+      box-shadow: 0 0 24px var(--accent-glow), inset 0 0 12px var(--accent-glow);
+      background-color: var(--bg-elevated);
+      transform: scale(1.015);
+    }
+
+    .next-badge {
+      background-color: var(--accent-green-bright);
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.25rem 0.85rem;
+      border-radius: 9999px;
+      box-shadow: 0 0 12px var(--accent-glow);
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Book Card & Borrowing Info */
+    .surface-card {
+      background-color: var(--bg-secondary);
+      border: 1.5px solid var(--border-color);
+      border-radius: 1rem;
+      box-shadow: var(--shadow-card);
+    }
+
+    .dropdown-panel {
+      background-color: var(--bg-secondary);
+      border: 2px solid var(--border-strong);
+      border-radius: 0.875rem;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
+      max-height: 340px;
+      overflow-y: auto;
+    }
+
+    .category-badge {
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+      border: 1px solid var(--border-color);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.2rem 0.75rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .book-row {
+      background-color: var(--bg-secondary);
+      border: 1.5px solid var(--border-color);
+      border-radius: 0.85rem;
+      padding: 0.95rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      transition: border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .book-row:hover {
+      border-color: var(--border-strong);
+    }
+
+    .serial-circle {
+      min-width: 2.5rem;
+      height: 2.5rem;
+      padding: 0 0.5rem;
+      border-radius: 0.65rem;
+      background-color: var(--badge-bg);
+      color: var(--badge-text);
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    footer {
+      margin-top: auto;
+      border-top: 1.5px solid var(--border-color);
+      background-color: var(--bg-secondary);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      color: var(--text-secondary);
+    }
+
+    @media (max-width: 640px) {
+      .hero-screen {
+        min-height: 94vh;
+        padding: 4.25rem 0.85rem 1.75rem;
+      }
+      .mihrab-card {
+        border-radius: 5.5rem 5.5rem 1.5rem 1.5rem;
+        padding: 2.25rem 1.1rem 1.85rem;
+      }
+      .lantern-left, .lantern-right {
+        display: none;
+      }
+      .salah-box {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1.15rem 1.25rem;
+      }
+      .salah-right {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px dashed var(--border-color);
+        padding-top: 0.6rem;
+      }
+      .book-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-Left Download / Install App Icon Only (No Text) -->
+  <div class="corner-controls-left">
+    <button id="installAppBtn" type="button" class="install-icon-btn" aria-label="Install Web App" title="অ্যাপ হিসেবে ইনস্টল বা ডাউনলোড করুন">
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Install / Download Feedback Modal -->
+  <div id="installModal" class="install-modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="installModalTitle">
+    <div class="surface-card max-w-md w-full p-6 relative" style="border: 2px solid var(--border-strong);">
+      <h3 id="installModalTitle" class="text-xl font-bold mb-2" style="color: var(--accent-green);">
+        অ্যাপ ইনস্টল ও ডাউনলোড
+      </h3>
+      <p id="installModalText" class="text-base leading-relaxed mb-4" style="color: var(--text-primary);">
+        ওয়েব অ্যাপটি আপনার ডিভাইসে ডাউনলোড শুরু হয়েছে। Google Chrome ব্রাউজারে সরাসরি অ্যাপ হিসেবে ইনস্টল করতে অ্যাড্রেস বারের ডান পাশের <strong>Install</strong> আইকনে অথবা ব্রাউজারের মেনু (⋮) থেকে <strong>"Install page as app" / "Add to Home screen"</strong> অপশনে ক্লিক করুন।
+      </p>
+      <div class="flex items-center justify-end gap-3">
+        <button id="closeInstallModalBtn" type="button" class="sub-nav-btn">
+          ঠিক আছে
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top-Right Mode Switcher Icons Only (No Text) -->
+  <div class="corner-controls" role="group" aria-label="Theme Switcher">
+    <button id="lightModeBtn" type="button" class="mode-icon-btn active" aria-label="Light Mode" title="Light Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+    </button>
+    <button id="darkModeBtn" type="button" class="mode-icon-btn" aria-label="Dark Mode" title="Dark Mode">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- ==================== HOME PAGE ==================== -->
+  <main id="page-home" class="flex-1 flex flex-col">
+    <section class="hero-screen">
+      <div class="mihrab-card">
+        <!-- Hanging Left Islamic Lantern (Fanoos) -->
+        <svg class="lantern-left" width="44" height="135" viewBox="0 0 44 135" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="22" y1="0" x2="22" y2="52" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+          <path d="M16 52H28L32 62H12L16 52Z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M10 62H34L38 88L28 112H16L6 88L10 62Z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2"/>
+          <circle cx="22" cy="86" r="6" fill="currentColor" fill-opacity="0.6"/>
+          <path d="M16 112H28L22 124L16 112Z" fill="currentColor"/>
+        </svg>
+
+        <!-- Hanging Right Islamic Lantern (Fanoos) -->
+        <svg class="lantern-right" width="44" height="135" viewBox="0 0 44 135" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <line x1="22" y1="0" x2="22" y2="52" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3"/>
+          <path d="M16 52H28L32 62H12L16 52Z" fill="currentColor" fill-opacity="0.25" stroke="currentColor" stroke-width="1.8"/>
+          <path d="M10 62H34L38 88L28 112H16L6 88L10 62Z" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2"/>
+          <circle cx="22" cy="86" r="6" fill="currentColor" fill-opacity="0.6"/>
+          <path d="M16 112H28L22 124L16 112Z" fill="currentColor"/>
+        </svg>
+
+        <!-- Bottom-Left & Bottom-Right Corner Arabesque Motifs -->
+        <svg class="corner-arabesque" style="bottom: 14px; left: 14px;" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 56V20C4 11.16 11.16 4 20 4H56" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M12 56V24C12 17.37 17.37 12 24 12H56" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="20" r="4" fill="currentColor"/>
+        </svg>
+        <svg class="corner-arabesque" style="bottom: 14px; right: 14px; transform: scaleX(-1);" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M4 56V20C4 11.16 11.16 4 20 4H56" stroke="currentColor" stroke-width="2.5"/>
+          <path d="M12 56V24C12 17.37 17.37 12 24 12H56" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="20" cy="20" r="4" fill="currentColor"/>
+        </svg>
+
+        <!-- Mosque Dome & Crescent Arch Emblem -->
+        <div class="mosque-crest" aria-hidden="true">
+          <svg width="96" height="76" viewBox="0 0 96 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Crescent at top of dome -->
+            <path d="M51 7.5C47.8 9.2 46.5 13.1 48.2 16.3C49.9 19.5 53.8 20.8 57 19.1C54.6 21.3 50.9 21.7 48 20C44.5 18 43.3 13.5 45.3 10C46.7 7.6 49.3 6.3 51 7.5Z" fill="currentColor"/>
+            <line x1="48" y1="20" x2="48" y2="27" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- Main Pointed Mosque Dome -->
+            <path d="M20 58C20 40 33 30 48 26C63 30 76 40 76 58H20Z" fill="currentColor" fill-opacity="0.16" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+            <!-- Twin Minarets -->
+            <path d="M10 58V30L14 23L18 30V58" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M78 58V30L82 23L86 30V58" fill="currentColor" fill-opacity="0.12" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/>
+            <!-- Archway Door -->
+            <path d="M41 58V46C41 42 44.5 39 48 37.5C51.5 39 55 42 55 46V58" fill="currentColor" fill-opacity="0.28" stroke="currentColor" stroke-width="2"/>
+            <!-- Base Line -->
+            <line x1="4" y1="58" x2="92" y2="58" stroke="currentColor" stroke-width="2.8" stroke-linecap="round"/>
+            <line x1="14" y1="64" x2="82" y2="64" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-opacity="0.6"/>
+          </svg>
+        </div>
+
+        <!-- Main Title (Unchanged Text) -->
+        <h1 class="hero-title">কাজী নজরুল ইসলাম হল মসজিদ, বুয়েট</h1>
+
+        <!-- Islamic Geometric Rub el Hizb Divider -->
+        <div class="islamic-divider" aria-hidden="true">
+          <span class="islamic-divider-line"></span>
+          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="7" y="7" width="18" height="18" stroke="currentColor" stroke-width="2"/>
+            <rect x="7" y="7" width="18" height="18" transform="rotate(45 16 16)" stroke="currentColor" stroke-width="2"/>
+            <circle cx="16" cy="16" r="3.2" fill="currentColor"/>
+          </svg>
+          <span class="islamic-divider-line"></span>
+        </div>
+
+        <!-- Description (Unchanged Text) -->
+        <p class="hero-description">
+          আসসালামু আলাইকুম। বাংলাদেশ প্রকৌশল বিশ্ববিদ্যালয়ের কাজী নজরুল ইসলাম হল মসজিদের ওয়েবসাইটে আপনাকে স্বাগতম। এখানে আপনি প্রতিদিনের প্রতি ওয়াক্ত সালাতের জামায়াতের সময়সূচী, হল মসজিদ লাইব্রেরির বইয়ের তালিকা এবং হল মসজিদের যাবতীয় আপডেট পাবেন।
+        </p>
+
+        <!-- CTA Buttons (Unchanged Text & Hover Glow Behavior) -->
+        <div class="w-full max-w-3xl mx-auto pt-2 flex flex-col sm:flex-row items-center justify-center gap-5">
+          <button id="goTimetableBtn" type="button" class="cta-btn w-full sm:w-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>জামায়াতের সময়সূচী দেখুন</span>
+          </button>
+          <button id="goBooksBtn" type="button" class="cta-btn w-full sm:w-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+              <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+            </svg>
+            <span>বইয়ের তালিকা দেখুন</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== SALAH TIMETABLE PAGE ==================== -->
+  <main id="page-timetable" class="flex-1 hidden py-14 px-4 sm:px-6 max-w-4xl mx-auto w-full">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
+      <button id="backHomeFromTimetable" type="button" class="sub-nav-btn">
+        ← হোম পেজ
+      </button>
+      <button id="toBooksFromTimetable" type="button" class="sub-nav-btn">
+        বইয়ের তালিকা দেখুন →
+      </button>
+    </div>
+
+    <div class="text-center mb-8">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold" style="color: var(--accent-green);">
+        হল মসজিদের জামায়াতের সময়সূচী
+      </h1>
+      <p id="liveClockDisplay" class="mt-2 text-base sm:text-lg font-medium" style="color: var(--text-secondary);"></p>
+    </div>
+
+    <div id="salahBoxesContainer" class="flex flex-col gap-4 mb-10">
+      <!-- Populated dynamically by JS -->
+    </div>
+  </main>
+
+  <!-- ==================== BOOK LIST PAGE ==================== -->
+  <main id="page-books" class="flex-1 hidden py-14 px-4 sm:px-6 max-w-5xl mx-auto w-full">
+    <div class="flex flex-wrap items-center justify-between gap-3 mb-8">
+      <button id="backHomeFromBooks" type="button" class="sub-nav-btn">
+        ← হোম পেজ
+      </button>
+      <button id="toTimetableFromBooks" type="button" class="sub-nav-btn">
+        জামায়াতের সময়সূচী দেখুন →
+      </button>
+    </div>
+
+    <!-- Page Title -->
+    <div class="text-center mb-6">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold" style="color: var(--accent-green);">
+        হল মসজিদের বইসমূহের তালিকা
+      </h1>
+    </div>
+
+    <!-- Category Dropdown Checkbox right after the title -->
+    <div class="max-w-xl mx-auto mb-8 relative" id="categoryDropdownWrapper">
+      <label class="block text-sm sm:text-base font-semibold mb-2 text-center" style="color: var(--text-secondary);">
+        ক্যাটাগরি নির্বাচন করুন (একাধিক বা "সব" টিক দিতে পারেন):
+      </label>
+      <button
+        id="dropdownToggleBtn"
+        type="button"
+        class="w-full surface-card px-4 py-3.5 flex items-center justify-between text-left font-semibold text-base sm:text-lg cursor-pointer"
+        style="border-color: var(--border-strong);"
+      >
+        <span id="selectedCategoryLabel">সব (সকল ক্যাটাগরির বই)</span>
+        <svg id="dropdownArrowIcon" class="w-5 h-5 transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      <div id="dropdownMenuPanel" class="dropdown-panel hidden absolute left-0 right-0 mt-2 p-3 z-40">
+        <div id="categoryCheckboxesContainer" class="flex flex-col gap-1.5">
+          <!-- Populated dynamically by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- কিভাবে বই সংগ্রহ করা যাবে Section -->
+    <section class="surface-card p-5 sm:p-6 mb-8" style="border-left: 5px solid var(--border-strong);">
+      <h2 class="text-xl sm:text-2xl font-bold mb-2" style="color: var(--accent-green);">
+        কীভাবে বই সংগ্রহ করা যাবে
+      </h2>
+      <p class="text-base sm:text-lg leading-relaxed" style="color: var(--text-primary);">
+        হল মসজিদের বইসমূহ শুধুমাত্র হলের আবাসিক শিক্ষার্থীরা সংগ্রহ করতে পারবেন। সেক্ষেত্রে আপনাকে হল মসজিদে রাখা একটি খাতায় আপনার নাম, রুম নম্বর, কোন বই সংগ্রহ করছেন এবং কোন তারিখে সংগ্রহ করছেন তা এন্ট্রি করবেন। আবার বই জমা দেয়ার সময় খাতায় জমা দেয়ার তারিখ উল্লেখ করে জমা দিবেন।
+      </p>
+    </section>
+
+    <!-- Search & Count Bar -->
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mb-5">
+      <div class="text-base sm:text-lg font-bold" style="color: var(--text-secondary);">
+        মোট প্রদর্শিত বই: <span id="bookCountBadge" style="color: var(--accent-green);">০</span> টি
+      </div>
+      <div class="relative flex-1 max-w-md">
+        <input
+          id="bookSearchInput"
+          type="text"
+          placeholder="বইয়ের নাম বা লেখকের নাম দিয়ে খুঁজুন..."
+          class="w-full px-4 py-2.5 rounded-xl text-base outline-none"
+          style="background-color: var(--bg-secondary); color: var(--text-primary); border: 1.5px solid var(--border-color);"
+        />
+      </div>
+    </div>
+
+    <!-- Serial Book List -->
+    <div id="booksListContainer" class="flex flex-col gap-3">
+      <!-- Populated dynamically by JS -->
+    </div>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer>
+    <p class="text-base font-semibold">© All rights reserved</p>
+  </footer>
+
+  <script>
+    // ==================== 1. SALAH TIMETABLE DATA ====================
+    const SALAH_SCHEDULE = [
+      { id: 'fajr', name: 'ফজরের জামায়াত', timeText: 'ভোর ৫:৪০', hour: 5, minute: 40 },
+      { id: 'dhuhr', name: 'যোহরের জামায়াত', timeText: 'দুপুর ১২:৫০', hour: 12, minute: 50 },
+      { id: 'asr', name: 'আসরের জামায়াত', timeText: 'বিকেল ৪:১৫', hour: 16, minute: 15 },
+      { id: 'maghrib', name: 'মাগরিবের জামায়াত', timeText: 'সন্ধ্যা ৫:২৫', hour: 17, minute: 25 },
+      { id: 'isha', name: 'এশার জামায়াত', timeText: 'রাত ৯:০০', hour: 21, minute: 0 }
+    ];
+
+    // ==================== 2. COMPLETE BOOK LIST DATA (FROM ATTACHED PDF) ====================
+    const BOOKS_DATA = [
+      // Page 1 (SL 556-625)
+      { title: "মুসলিম উম্মাহর ইতিহাস: ১-১৭ খণ্ড (দাওয়াহ সংস্করণ) (ইত্তিহাদ পাবলিকেশন)", category: "ইতিহাস" },
+      { title: "সিয়ারুস সাহাবা (১-১৭ খণ্ড) (ইত্তিহাদ পাবলিকেশন)", category: "সীরাত ও জীবনী" },
+      { title: "সীরাতে মুস্তফা (সা.) - (১-৩ খণ্ড একত্রে) (ইসলামিয়া কুতুবখানা)", category: "সীরাত ও জীবনী" },
+      { title: "সিরাতুন নবি সা. (১-৩ খণ্ড পূর্ণ) (কালান্তর প্রকাশনী)", category: "সীরাত ও জীবনী" },
+      { title: "খলিফাতুল মুসলিমিন উমর ইবনুল খাত্তাব (দুই খণ্ড একত্রে) (কালান্তর প্রকাশনী)", category: "সীরাত ও জীবনী" },
+      { title: "প্যারাডক্সিক্যাল সাজিদ (গার্ডিয়ান পাবলিকেশন্স)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মুমিনের ক্যারিয়ার ভাবনা (চেতনা প্রকাশন)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "বাইতুল্লাহর মুসাফির (দারুল কলম)", category: "ইতিহাস" },
+      { title: "ইতিহাসের কাঠগড়ায় হযরত মু'আবিয়া রা. (দারুল কলম)", category: "ইতিহাস" },
+      { title: "সিরাতে রাসুল : শিক্ষা ও সৌন্দর্য (নাশাত পাবলিকেশন)", category: "সীরাত ও জীবনী" },
+      { title: "ক্ষণস্থায়ী রঙিন দুনিয়া (বই ঘর)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কুরআন আপনাকে কী বলে (বই ঘর)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "দীন ও শরীয়ত (বড কন্টেন্ট এন্ড পাবলিকেশন্স)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "দীনে এলাহী অসৎ আলেম ও পীর (বিশ্বকল্যাণ পাবলিকেশন্স)", category: "আকীদাহ ও ঈমান" },
+      { title: "অভিশপ্ত রঙধনু (দাওয়াহ সংস্করণ) (মাকতাবাতুন নূর)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "আকাবির কা তাকওয়া (মাকতাবাতুয যাকারিয়া)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আকাবির কা রমাযান (মাকতাবাতুয যাকারিয়া)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কষ্টিপাথর (মাকতাবাতুল আযহার)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "আমি যদি পাখি হতাম (মাকতাবাতুল আযহার)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলামের রাজনৈতিক ব্যাখ্যা ও বিশ্লেষণ (মাকতাবাতুল আযহার)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "দোস্ত, জানেমান (মাকতাবাতুল আযহার)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "দলিলসহ নামাযের মাসায়েল (মাকতাবাতুল আযহার)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "মু'মিনের ঘুম (মাকতাবাতুল আযহার)", category: "হাদীস ও সুন্নাহ" },
+      { title: "হুদহুদের দৃষ্টিপাত (মাকতাবাতুল আযহার)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মহিলারা নামায পড়বে কোথায় (মাকতাবাতুল হাসান)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "শাশ্বত ঈমানের পরিচয় (মাকতাবাতুল হাসান)", category: "আকীদাহ ও ঈমান" },
+      { title: "কে কিনবেন জান্নাত (মাকতাবাতুল হাসান)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আপনার দুআ কি কবুল হচ্ছে না (হার্ড কভার) (মাকতাবাতুল হাসান)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আমি কেন হানাফি (মাকতাবাতুল হাসান)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "স্পেনের কান্না (মাকতাবাতুল হাসান)", category: "ইতিহাস" },
+      { title: "শোনো হে যুবক (মাকতাবাতুল হাসান)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "নবীয়ে রহমত সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম (মাকতাবাতুল হেরা)", category: "সীরাত ও জীবনী" },
+
+      // Page 2 (SL 626-658)
+      { title: "কবিরা গুনাহ (মাকতাবাতুল হেরা)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "উম্মাহর ঐক্য পথ ও পন্থা (মারকাযুদ দাওয়াহ আলইসলামিয়া ঢাকা)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "নির্বাচিত প্রবন্ধ - ২ খণ্ড একত্রে (মারকাযুদ দাওয়াহ আলইসলামিয়া ঢাকা)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "শিয়া মতবাদ ধারণা ও বাস্তবতা (রাহনুমা প্রকাশনী)", category: "আকীদাহ ও ঈমান" },
+      { title: "সফরে হিজায (রাহনুমা প্রকাশনী)", category: "ইতিহাস" },
+      { title: "ফাযায়েলে আমল ও উলামায়ে দেওবন্দ আপত্তি ও খণ্ডন (রাহনুমা প্রকাশনী)", category: "হাদীস ও সুন্নাহ" },
+      { title: "হাদীসের প্রামাণ্যতা (রাহনুমা প্রকাশনী)", category: "হাদীস ও সুন্নাহ" },
+      { title: "ফিলিস্তিন একজন সালাহুদ্দীন আইয়ুবীর অপেক্ষায় (রাহনুমা প্রকাশনী)", category: "ইতিহাস" },
+      { title: "জীবন ও কর্ম উসমান ইবনে আফফান রা. (২ খণ্ড একত্রে)", category: "সীরাত ও জীবনী" },
+      { title: "আক্বীদাহ ত্বহাবিয়্যাহ (রাহনুমা প্রকাশনী)", category: "আকীদাহ ও ঈমান" },
+      { title: "হজরত আবু বকর রাযি. (আশারায়ে মুবাশশারাঃ সিরিজ-১) (রাহনুমা প্রকাশনী)", category: "সীরাত ও জীবনী" },
+      { title: "কাদিয়ানীরা অমুসলিম কেন? (রাহনুমা প্রকাশনী)", category: "আকীদাহ ও ঈমান" },
+      { title: "বিবাহ আহকাম ও মাসায়েল (রাহনুমা প্রকাশনী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "জান্নাতে একদিন (রুহামা পাবলিকেশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "হে বোন, যদি জান্নাতে যেতে চাও (রুহামা পাবলিকেশন)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "দৃষ্টি শয়তানের বিষাক্ত তীর (রুহামা পাবলিকেশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "অন্তরের রোগ (১ম ও ২য় খণ্ড একত্রে) (রুহামা পাবলিকেশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "অন্তরের আমল - ২ খণ্ড একত্রে (রুহামা পাবলিকেশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ওয়াসওয়াসা (শয়তানের কুমন্ত্রণা) (সত্যায়ন প্রকাশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কাঠগড়া (কষ্টিপাথর-৩) (সন্দীপন প্রকাশন)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "জীবনের সেরা রামাদান (সমকালীন প্রকাশন)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ইজ মিউজিক হালাল? (সমকালীন প্রকাশন)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "তারাফুল (সমকালীন প্রকাশন)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মা, মা, মা এবং বাবা (সমকালীন প্রকাশন)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "বেলা ফুরাবার আগে (সমকালীন প্রকাশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "এবার ভিন্ন কিছু হোক (সমকালীন প্রকাশন)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলামী জীবনবিধান : মাসায়েল ও নির্দেশনা", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "অবাধ্যতার ইতিহাস (সমকালীন প্রকাশন)", category: "ইতিহাস" },
+      { title: "দ্য গ্রেটেস্ট অন্ট্রাপ্রেনর মুহাম্মাদ [সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম] (সুলতানস)", category: "সীরাত ও জীবনী" },
+
+      // Page 4: হাকীমুল উম্মত হযরত মাওলানা আশরাফ আলী থানভী রহ.-এর গ্রন্থসমূহ
+      { title: "ইসলাহী নেসাব (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "হায়াতুল মুসলিমীন (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "জাযাউল আ'মাল (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "হুকুকুল ইসলাম (মাওলানা আশরাফ আলী থানভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "হুকুকুল ওয়ালিদাইন (মাওলানা আশরাফ আলী থানভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "তা'লীমুদ্দীন-দ্বীন শিক্ষা (মাওলানা আশরাফ আলী থানভী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ফুরুউল ঈমান (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আকীদাহ ও ঈমান" },
+      { title: "কসদুস সাবীল [বোর্ড বাঁধাই] (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কসদুস সাবীল [পেপার ব্যাক] (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আদাবুল মুআশারাত (মাওলানা আশরাফ আলী থানভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "আগলাতুল আওয়াম (মাওলানা আশরাফ আলী থানভী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "সাফাইয়ে মুআমালাত (মাওলানা আশরাফ আলী থানভী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ঈমান ও আকীদা (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আকীদাহ ও ঈমান" },
+      { title: "উলামায়ে কেরামের উদ্দেশ্যে থানভী রহ.-এর বাণী", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "বাছায়েরে হাকীমুল উম্মত (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "পর্দার বিধান (মাওলানা আশরাফ আলী থানভী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "কামালাতে আশরাফিয়া (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলামের সৌন্দর্য [১-২ খণ্ড] (মাওলানা আশরাফ আলী থানভী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মুনাজাতে মাকবুল ও মাসনূন দুআ (মাওলানা আশরাফ আলী থানভী রহ.)", category: "হাদীস ও সুন্নাহ" },
+      { title: "আশরাফ চরিত (মাওলানা আশরাফ আলী থানভী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "আত্মার প্রশান্তি (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "উম্মতের বিপর্যয় ও তার প্রতিকার [১-২ খণ্ড] (মাওলানা আশরাফ আলী থানভী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মাআরেফে হাকীমুল উম্মত [১-২ খণ্ড] (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলামী তাহযীব (মাওলানা আশরাফ আলী থানভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "আশরাফুল আদাব (মাওলানা আশরাফ আলী থানভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "পরকালের ভালোবাসা (মাওলানা আশরাফ আলী থানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "নারীশিক্ষা (মাওলানা আশরাফ আলী থানভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+
+      // Page 4: মুফতী মুহাম্মাদ শফী রহ.-এর গ্রন্থসমূহ
+      { title: "মাজালিসে হাকীমুল উম্মত (মুফতী মুহাম্মাদ শফী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আত্মশুদ্ধি (মুফতী মুহাম্মাদ শফী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আল্লাহওয়ালা (মুফতী মুহাম্মাদ শফী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাজালিসে মুফতীয়ে আযম (মুফতী মুহাম্মাদ শফী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "শোনো হে মুমিন (মুফতী মুহাম্মাদ শফী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মুহতারাম আব্বাজান রহ. (মুফতী মুহাম্মাদ শফী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "নাজাতুল মুসলিমীন (মুফতী মুহাম্মাদ শফী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "সালাতুত তাসবীহ (মুফতী মুহাম্মাদ শফী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "বিখ্যাত বুযুর্গ হযরত যুননুন মিসরী রহ. (মুফতী মুহাম্মাদ শফী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "শান্তি ও নিরাপত্তা প্রতিষ্ঠায় মহানবী (সা.) (মুফতী মুহাম্মাদ শফী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "মহানবীর (সা.) আদাব ও আখলাক (মুফতী মুহাম্মাদ শফী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "সীরাতুন্নবী (সা.) পাঠ (মুফতী মুহাম্মাদ শফী রহ.)", category: "সীরাত ও জীবনী" },
+
+      // Page 4: মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.-এর গ্রন্থসমূহ
+      { title: "নামাযের হাকীকত (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ইসলাম কি ও কেন? (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "আকীদাহ ও ঈমান" },
+      { title: "শাশ্বত সত্যের পয়গাম (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "তাসাওউফ কী ও কেন? (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আলফিয়াতুল হাদীস [আরবী মতন, তালীক ও তাখরীজ] (মাওলানা মনযূর নু'মানী রহ.)", category: "হাদীস ও সুন্নাহ" },
+      { title: "আলফিয়াতুল হাদীস [আরবী মতন] (মাওলানা মনযূর নু'মানী রহ.)", category: "হাদীস ও সুন্নাহ" },
+      { title: "ইসলাহের ডাক (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "তালিবানে ইলমের রাহে মনযিল (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "আল্লাহর নৈকট্যলাভের দুটি পথ (মাওলানা মুহাম্মাদ মনযূর নু'মানী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+
+      // Page 4: সাইয়্যেদ আবুল হাসান আলী নদভী রহ.-এর গ্রন্থসমূহ
+      { title: "উলামা-তলাবা [ভাষণসমগ্র-১] (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "দাওয়াত ও তাবলীগ [ভাষণসমগ্র-২] (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "হেদায়েত ও তাবলীগ [ভাষণসমগ্র-৩] (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মুসলিম উম্মাহর করণীয় [ভাষণসমগ্র-৪] (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "শরীয়তের বিধি-বিধান ও তার দাবী [ভাষণসমগ্র-৫] (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "মহানবী (সা.) ও সভ্য পৃথিবীর ঋণ স্বীকার (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "আলোকিত জীবনের পথ (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "তাকবিয়াতুল ঈমান-তাওহীদের পয়গাম (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "আকীদাহ ও ঈমান" },
+      { title: "মহীয়সী মা (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "দস্তুরে হায়াত-ইসলামী জীবনপদ্ধতি (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "মাজালিসে হাসানাহ [১-২ খণ্ড] (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "বায়তুল্লাহর পথে (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "ইতিহাস" },
+      { title: "ইসলামের মৌলিক তিন আকীদা (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "আকীদাহ ও ঈমান" },
+      { title: "কুরআনী ইফাদাত (সাইয়্যেদ আবুল হাসান আলী নদভী রহ.)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+
+      // Page 4: মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.-এর গ্রন্থসমূহ
+      { title: "তোহফাতুল মুসলিমাৎ [১-২ খণ্ড] (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "তা'লীমুন-নিসা (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "উন্নতির চাবিকাঠি (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "সফলতার পথ (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কিয়ামতের আলামত (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "আকীদাহ ও ঈমান" },
+      { title: "রওয়াতুল আহবাব (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "মুমিনের আদর্শ জীবন : পথ ও পন্থা (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "যাদুত তালেবীন [আরবী মতন, তালীক ও তাখরীজ] (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "হাদীস ও সুন্নাহ" },
+      { title: "ইসলামী আদাব (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "কেমন হবে মুমিনের জীবনযাপন (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "আত্মরক্ষার উপায় ও ওযীফা (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "হাদীস ও সুন্নাহ" },
+      { title: "শ্রেষ্ঠ নবীর (সা.) শ্রেষ্ঠ উম্মত (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "মহানবীর (সা.) পত্রাবলী (মাওলানা আশেক ইলাহী বুলন্দশহরী রহ.)", category: "সীরাত ও জীবনী" },
+
+      // Page 4 & 5: শাইখুল ইসলাম মুফতী মুহাম্মাদ তাকী উসমানী দামাত বারাকাতুহুম-এর গ্রন্থসমূহ (01-72)
+      { title: "তাফসীরে তাওযীহুল কুরআন [সমগ্র] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "তাফসীরে তাওযীহুল কুরআন [১-৩ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "সহজ তাফসীরুল কুরআন [১-৩ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "উলূমুল কুরআন : কুরআন পরিচিতি (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "ইসলামী আকীদা-বিশ্বাস [বয়ান-১] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আকীদাহ ও ঈমান" },
+      { title: "ইবাদত-বন্দেগী [বয়ান-২] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ইসলামী মুআমালাত [বয়ান-৩] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ইসলামী মুআশারাত [বয়ান-৪] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "ইসলাম ও পারিবারিক জীবন [বয়ান-৫] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "তাসাওউফ ও আত্মশুদ্ধি [বয়ান-৬] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মন্দ চরিত্র ও তার সংশোধন [বয়ান-৭] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "উত্তম চরিত্র [বয়ান-৮] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "ইসলামী জীবনের কল্যাণময় আদব [বয়ান-৯] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "প্রিয়নবীর (সা.) প্রিয় দুআ ও আমল [বয়ান-১০] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "হাদীস ও সুন্নাহ" },
+      { title: "ইসলামী মাসসমূহ [বয়ান-১১] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "সীরাতে রাসূল (সা.) ও আমাদের জীবন [বয়ান-১২] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "দ্বীনী মাদরাসা, উলামা ও তলাবা [বয়ান-১৩] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "ইসলাম ও আধুনিক যুগ [বয়ান-১৪] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মুসলিম মনীষীগণের ঘটনাবলী [বয়ান-১৫] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ইতিহাস" },
+      { title: "নির্বাচিত হাদীস শরীফ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "হাদীস ও সুন্নাহ" },
+      { title: "ইসলাহী মাজালিস [১-২ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলাহী মাজালিস [৩-৪ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলাহী মাজালিস [৫-৬ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলাহী মাজালিস [৭ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [১ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [২য় খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৩য় খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৪র্থ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৫ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৬ষ্ঠ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৭ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৮ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [৯ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে উসমানী [১০ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আমার দেখা পৃথিবী [১ম খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ইতিহাস" },
+      { title: "আমার দেখা পৃথিবী [২য় খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ইতিহাস" },
+      { title: "আমার দেখা পৃথিবী [৩য় খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ইতিহাস" },
+      { title: "আমার দেখা পৃথিবী [৪র্থ খণ্ড] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ইতিহাস" },
+      { title: "আমার জীবনকথা [সমগ্র-১] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "আমার জীবনকথা [সমগ্র-২] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "আমার জীবনকথা [সমগ্র-৩] (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "বড়দের নির্বাচিত বাণী (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "তোহফায়ে দাওরা-হাদীছ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "হাদীস ও সুন্নাহ" },
+      { title: "মাযহাব ও তাকলীদ : কী ও কেন? (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "সহজ নেক আমল (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আমার আব্বা আমার শায়খ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "হজ্জ একটি প্রেমসিক্ত ইবাদত (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "দুনিয়ার ওপারে (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আকীদাহ ও ঈমান" },
+      { title: "যিক্‌র ও ফিক্‌র (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ইসলামী ব্যাংকিং ও অর্থায়ন পদ্ধতি (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "নূরানী দোয়া (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "হাদীস ও সুন্নাহ" },
+      { title: "দরসে নেযামী-পাঠদান পদ্ধতি (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "গোনাহ ও তাওবা-অভিশাপ ও রহমত (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "জীবনের শ্রেষ্ঠ সম্পদ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আপন ঘর বাঁচান (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "পিতা-মাতার খেদমত (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "স্বামী-স্ত্রীর অধিকার (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "বিবাহ ও তালাক (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "সন্তানের লালন-পালন (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "পরিবার ব্যবস্থা (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "পারিবারিক কলহ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "মুমিন ও মুনাফিক (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আকীদাহ ও ঈমান" },
+      { title: "নূরানী কাফেলা (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "রমযানুল মুবারকের সওগাত (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "আহকামে যাকাত (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "বরেণ্যদের স্মৃতিচারণ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "সীরাত ও জীবনী" },
+      { title: "খৃস্টধর্মের স্বরূপ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আকীদাহ ও ঈমান" },
+      { title: "সুদ : পরিষ্কার বিদ্রোহ (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ইসলাম ও আধুনিকতা (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মহানবী (সা.) যেভাবে নামায পড়তেন (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ওহী কী ও কেন? (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "আকীদাহ ও ঈমান" },
+      { title: "ইসলাম ও আধুনিক যুগ (সমগ্র) (মুফতী মুহাম্মাদ তাকী উসমানী)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+
+      // Page 5 Right Column Authors
+      { title: "দাওয়াত ও তাবলীগের মূলনীতি (ক্বারী মুহাম্মাদ তাইয়্যেব ছাহেব রহ.)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মাযহাবের গোড়ার কথা (ক্বারী মুহাম্মাদ তাইয়্যেব ছাহেব রহ.)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "হেদায়েতের জন্য কিতাবুল্লাহ ও রিজালুল্লাহ উভয়টিই জরুরী (ক্বারী মুহাম্মাদ তাইয়্যেব রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাজালিসে আবরার (মাওলানা শাহ আবরারুল হক ছাহেব রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "হায়াতে আবরার (মাওলানা শাহ আবরারুল হক ছাহেব রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "রাসায়েলে আবরার (মাওলানা শাহ আবরারুল হক ছাহেব রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে আবরার [সমগ্র] (মাওলানা শাহ আবরারুল হক ছাহেব রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "দৈনন্দিন কাজে প্রিয়নবীর সা. প্রিয় সুন্নাত (মাওলানা শাহ আবরারুল হক ছাহেব রহ.)", category: "হাদীস ও সুন্নাহ" },
+      { title: "গুনাহ বর্জন করুন, নজরের হেফাজত করুন (মুফতী রশীদ আহমাদ লুধিয়ানভী রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "হুকুকুল কুরআন (মুফতী রশীদ আহমাদ লুধিয়ানভী রহ.)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "তাযকিরাতুল আখেরাহ্ (প্রফেসর মুহাম্মাদ হামীদুর রহমান রহ.)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কুরআনের ডাক ও আমাদের জীবন (প্রফেসর মুহাম্মাদ হামীদুর রহমান রহ.)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "আলোর কাফেলা [সমগ্র] (ড. আবদুর রহমান রাফাত পাশা রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "আলোর মিছিল [সমগ্র] (ড. আবদুর রহমান রাফাত পাশা রহ.)", category: "সীরাত ও জীবনী" },
+      { title: "মাযহাব না মানার পরিণতি (মাওলানা মুফতী আবুল কাসেম নো'মানী)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ঈমানের দাবী ও আমাদের জীবন (মাওলানা মুফতী আবুল কাসেম নো'মানী)", category: "আকীদাহ ও ঈমান" },
+      { title: "ফাতাওয়ায়ে রাহমানিয়া [১-২ খণ্ড] (মুফতী মনসূরুল হক)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ইসলামী যিন্দেগী (মুফতী মনসূরুল হক)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "মালফুযাতে মুজাদ্দিদে দীন (মুফতী মনসূরুল হক)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মওদুদী মতবাদ (মুফতী মনসূরুল হক)", category: "আকীদাহ ও ঈমান" },
+      { title: "শেয়ারবাজার : তাত্ত্বিক বিশ্লেষণ ও শরঈ হুকুম (মুফতী আবুল হাসান মুহাম্মাদ আবদুল্লাহ)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "মাল্টিলেভেল মার্কেটিং : তাত্ত্বিক বিশ্লেষণ ও শরঈ হুকুম (মুফতী আবুল হাসান মুহাম্মাদ আবদুল্লাহ)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "হাদীস ও সুন্নাহয় নামাযের পদ্ধতি (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "হাদীস ও সুন্নাহ" },
+      { title: "হাদীস ও সুন্নাহয় কাবলাল জুমা (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "হাদীস ও সুন্নাহ" },
+      { title: "তাসাওউফ তত্ত্ব ও বিশ্লেষণ (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "তালিবানে ইলম : পথ ও পাথেয় (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "ঈমান সবার আগে (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "আকীদাহ ও ঈমান" },
+      { title: "ওয়াজাহাতী মজলিস [আটকার্ড] (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "তারাবীর রাকাআত সংখ্যা ও ঈদের নামায (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "আল কুরআনুল কারীম : কতিপয় হক ও আদব (মাওলানা মুহাম্মাদ আবদুল মালেক)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "ইসলামে মধ্যপন্থা ও পরিমিতিবোধ (মাওলানা আবুল বাশার মুহাম্মাদ সাইফুল ইসলাম)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "খ্রীস্টধর্ম না পৌলবাদ? (মাওলানা আবুল বাশার মুহাম্মাদ সাইফুল ইসলাম)", category: "আকীদাহ ও ঈমান" },
+      { title: "এসো ঈমানের পথে এসো আলোর পথে [১-৩ খণ্ড] (মাওলানা আবুল বাশার মুহাম্মাদ সাইফুল ইসলাম)", category: "আকীদাহ ও ঈমান" },
+      { title: "কাদিয়ানী সম্প্রদায় : ইসলামবিরোধী এক ধর্মগোষ্ঠী (মাওলানা আবুল বাশার মুহাম্মাদ সাইফুল ইসলাম)", category: "আকীদাহ ও ঈমান" },
+
+      // Page 6: শায়খ সালেহ আহমাদ আশ-শামী, শায়খ মুনাজ্জিদ, মাওলানা হাবীবুর রহমান খান ও অন্যান্য
+      { title: "কুরআনের পয়গাম (শায়খ সালেহ আহমাদ আশ-শামী)", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "মাওয়ায়েযে ইমাম হাসান বসরী রহ. (শায়খ সালেহ আহমাদ আশ-শামী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে আবু হাযেম সালামাহ ইবনে দীনার রহ. (শায়খ সালেহ আহমাদ আশ-শামী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে আবদুল্লাহ ইবনে মুবারক রহ. (শায়খ সালেহ আহমাদ আশ-শামী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মাওয়ায়েযে ইমাম জুনাইদ বাগদাদী রহ. (শায়খ সালেহ আহমাদ আশ-শামী)", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "কেমন ছিল নবীজির (সা.) আচারণ [১-৩ খণ্ড] (শায়খ মুহাম্মাদ সালিহ আল মুনাজ্জিদ)", category: "সীরাত ও জীবনী" },
+      { title: "মহানবীর (সা.) মহান জীবন [১-৩ খণ্ড] (শায়খ মুহাম্মাদ সালিহ আল মুনাজ্জিদ)", category: "সীরাত ও জীবনী" },
+      { title: "কওমী মাদরাসা কী ও কেন? (মাওলানা মুহাম্মাদ হাবীবুর রহমান খান)", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "নবীজীর (সা.) মে'রাজ (মাওলানা মুহাম্মাদ হাবীবুর রহমান খান)", category: "সীরাত ও জীবনী" },
+      { title: "শবে বরাত : করণীয় ও বর্জনীয় (মাওলানা মুহাম্মাদ হাবীবুর রহমান খান)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ঈদবার্তা [আর্ট কার্ড] (মাওলানা মুহাম্মাদ হাবীবুর রহমান খান)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "রমযানুল মুবারকের উপহার (মাওলানা মুহাম্মাদ হাবীবুর রহমান খান)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "কুরবানীর ফাযায়েল ও মাসায়েল (মাওলানা মুহাম্মাদ হাবীবুর রহমান খান)", category: "ধর্মীয় বিধান ও মাসায়েল" },
+
+      // Page 6: সাড়া জাগানো অন্যান্য গ্রন্থসমূহ (1-60)
+      { title: "ঈদে মীলাদুন্নবী (সা.) ও প্রচলিত মীলাদ [বোর্ড]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "ঈদে মীলাদুন্নবী (সা.) ও প্রচলিত মীলাদ [ছোট]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "নূরানী কায়েদাহ [নির্ধারিত মূল্য]", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "নবীজীর (সা.) নামায", category: "হাদীস ও সুন্নাহ" },
+      { title: "হৃদয়ের আলো", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "জীবন সায়াহ্নে আলোর হাতছানি", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "আহকামুন নিসা", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "আহকামুন নিসা [অফসেট-গিফট বক্স]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "বেহেশতের পথ ও পাথেয়", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "ফেরেশতাদের বিস্ময়কর জীবনকথা", category: "আকীদাহ ও ঈমান" },
+      { title: "বিশ্ববিখ্যাত নয়জন মুহাদ্দিস", category: "সীরাত ও জীবনী" },
+      { title: "ইসলামের দৃষ্টিতে মোসাফাহ", category: "হাদীস ও সুন্নাহ" },
+      { title: "তোহফাতুল আখতার", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মালফুযাতে ফুলপুরী রহ.", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "হজযাত্রীর সঙ্গী", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "হায়াতে মুহাদ্দিস ছাহেব রহ.", category: "সীরাত ও জীবনী" },
+      { title: "আপনার সমীপে আপনার আমানত", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "তোহফাতুল আতফাল", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "কুরআনে হাকীম ও আমাদের যিন্দেগী", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "যে কথায় পাথর গলে", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "বড়দের ছেলেবেলা", category: "সীরাত ও জীবনী" },
+      { title: "নারীর মর্যাদা ও অধিকার", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "আলোর দিগন্তে হযরত উমর রাযি.", category: "সীরাত ও জীবনী" },
+      { title: "মুঈনুল হুজ্জাজ [হজ্জ গাইড]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "কুরআন-সুন্নাহর আলোকে উমরী কাযা", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "মা'আরেফে মাসীহুল উম্মাত", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "রিয়াদুস সালেহীন [১-৯ খণ্ড]", category: "হাদীস ও সুন্নাহ" },
+      { title: "নবীজীর (সা.) হজ্জ", category: "হাদীস ও সুন্নাহ" },
+      { title: "জান্নাতের সহজ পথ", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "মুসলিম বিশ্বের বর্তমান সংকট ও উত্তরণের পথ", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "বাংলার চার মনীষী", category: "ইতিহাস" },
+      { title: "জুযে তাবারাকা ও আম্মা [নির্ধারিত মূল্য]", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "জুযে আম্মা পারা [নির্ধারিত মূল্য]", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "নারীর মিরাস", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "রাহে ই'তিদাল", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "মহামারী মুসিবত [নির্ধারিত মূল্য]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "নবীজীর (সা.) সোহবতে ধন্য যাঁরা [১-৩ খণ্ড]", category: "সীরাত ও জীবনী" },
+      { title: "ইসলামী অর্থব্যবস্থার মূলনীতি", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "আদর্শ দ্বীনী পরিবার", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "মাযহাব বিরোধীদের স্বরূপ ও ষড়যন্ত্র", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "শান্তিময় জীবনের পথ", category: "আত্মশুদ্ধি ও তাসাওউফ" },
+      { title: "সীরাতুন নবী (সা.) : শিক্ষা ও উপদেশ", category: "সীরাত ও জীবনী" },
+      { title: "প্রিয় নবীজী (সা.)", category: "সীরাত ও জীবনী" },
+      { title: "দ্বীনী আদাব ও সুন্নাতী যিন্দেগী", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "যাঁর প্রেরণায় ধন্য পৃথিবী [১-৩ খণ্ড]", category: "সীরাত ও জীবনী" },
+      { title: "কুরআনের অলৌকিকতা", category: "তাফসীর ও কুরআনের ব্যাখ্যা" },
+      { title: "ইসলামের সামাজিক আদাব", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "মাযহাব : পরিচিতি, প্রয়োজনীয়তা ও ইতিহাস", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "উসওয়ায়ে রাসূলে আকরাম (সা.)", category: "সীরাত ও জীবনী" },
+      { title: "বিশ্বনবী (সা.)", category: "সীরাত ও জীবনী" },
+      { title: "নূরুল ইযাহ [নির্ধারিত মূল্য]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "শরহুল আওয়ায়েলুল মিয়াহ [নির্ধারিত মূল্য]", category: "হাদীস ও সুন্নাহ" },
+      { title: "ইসলামে সৃষ্টির সেবা", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "তালেবে ইলমের জীবন গড়ার পাথেয়", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "আদাবুল মুআল্লিমীন", category: "পরিবার, সমাজ ও আদাব" },
+      { title: "পূর্ণাঙ্গ সীরাতুর রাসূল (সা.) [১ম খণ্ড]", category: "সীরাত ও জীবনী" },
+      { title: "রমযানুল মুবারকের বিশেষ উপহার [দৃশ্য গিফট বক্স]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "তালিবুল ইলমের শ্রেষ্ঠ উপহার [দৃশ্য গিফট বক্স]", category: "দাওয়াত ও সমকালীন ভাবনা" },
+      { title: "হজ্জযাত্রীর পাথেয় [দৃশ্য গিফট বক্স]", category: "ধর্মীয় বিধান ও মাসায়েল" },
+      { title: "মহিলা মাহফিল [দৃশ্য গিফট বক্স]", category: "পরিবার, সমাজ ও আদাব" },
+
+      // Page 6: শিশু-কিশোর উপযোগী কয়েকটি বই (01-13)
+      { title: "প্রিয়নবী (সা.) [১-১০ খণ্ড একত্রে]", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "সীরাতুন্নবী (সা.) সিরিজ [১-১০ খণ্ড]", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "ছোটদের হাফেজ্জী হুজুর রহ.", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "মক্কার দুলাল", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "নীল দরিয়ার নামে", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "অজানা দ্বীপের কাহিনী", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "আলোর ফোয়ারা", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "গায়েবী খাযানা", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "শহীদানের গল্প শোন [সমগ্র]", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "শহীদানের গল্প শোন [সিরিজ]", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "কিশোর সাহাবী [সমগ্র]", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "কিশোর সাহাবী [সিরিজ]", category: "শিশু-কিশোর ও সাহিত্য" },
+      { title: "হাদীসের আলো (শিশু-কিশোর)", category: "শিশু-কিশোর ও সাহিত্য" }
+    ];
+
+    const ALL_CATEGORIES = [
+      "সব",
+      "ইতিহাস",
+      "সীরাত ও জীবনী",
+      "তাফসীর ও কুরআনের ব্যাখ্যা",
+      "হাদীস ও সুন্নাহ",
+      "ধর্মীয় বিধান ও মাসায়েল",
+      "আকীদাহ ও ঈমান",
+      "আত্মশুদ্ধি ও তাসাওউফ",
+      "পরিবার, সমাজ ও আদাব",
+      "দাওয়াত ও সমকালীন ভাবনা",
+      "শিশু-কিশোর ও সাহিত্য"
+    ];
+
+    // ==================== 3. STATE & HELPERS ====================
+    let currentPage = 'home';
+    let selectedCategories = new Set(['সব']);
+    let searchQuery = '';
+
+    function toBanglaDigits(num) {
+      const banglaDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return String(num).replace(/\d/g, d => banglaDigits[Number(d)]);
+    }
+
+    // ==================== 4. THEME MANAGEMENT ====================
+    const htmlEl = document.documentElement;
+    const lightModeBtn = document.getElementById('lightModeBtn');
+    const darkModeBtn = document.getElementById('darkModeBtn');
+
+    function setTheme(mode) {
+      htmlEl.setAttribute('data-theme', mode);
+      if (mode === 'dark') {
+        darkModeBtn.classList.add('active');
+        lightModeBtn.classList.remove('active');
+      } else {
+        lightModeBtn.classList.add('active');
+        darkModeBtn.classList.remove('active');
+      }
+      try {
+        localStorage.setItem('nihm_theme', mode);
+      } catch (e) {}
+    }
+
+    lightModeBtn.addEventListener('click', () => setTheme('light'));
+    darkModeBtn.addEventListener('click', () => setTheme('dark'));
+
+    try {
+      const savedTheme = localStorage.getItem('nihm_theme');
+      if (savedTheme === 'dark' || savedTheme === 'light') {
+        setTheme(savedTheme);
+      }
+    } catch (e) {}
+
+    // ==================== 5. PAGE NAVIGATION ====================
+    const pageHome = document.getElementById('page-home');
+    const pageTimetable = document.getElementById('page-timetable');
+    const pageBooks = document.getElementById('page-books');
+
+    function navigateTo(page) {
+      currentPage = page;
+      pageHome.classList.toggle('hidden', page !== 'home');
+      pageTimetable.classList.toggle('hidden', page !== 'timetable');
+      pageBooks.classList.toggle('hidden', page !== 'books');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (page === 'timetable') {
+        renderSalahTimetable();
+      } else if (page === 'books') {
+        renderBooksList();
+      }
+    }
+
+    document.getElementById('goTimetableBtn').addEventListener('click', () => navigateTo('timetable'));
+    document.getElementById('goBooksBtn').addEventListener('click', () => navigateTo('books'));
+    document.getElementById('backHomeFromTimetable').addEventListener('click', () => navigateTo('home'));
+    document.getElementById('toBooksFromTimetable').addEventListener('click', () => navigateTo('books'));
+    document.getElementById('backHomeFromBooks').addEventListener('click', () => navigateTo('home'));
+    document.getElementById('toTimetableFromBooks').addEventListener('click', () => navigateTo('timetable'));
+
+    // ==================== 6. SALAH TIMETABLE & NEXT SALAH LOGIC ====================
+    function getNextSalahId(now) {
+      const currentMinutes = now.getHours() * 60 + now.getMinutes();
+      for (const salah of SALAH_SCHEDULE) {
+        const salahMinutes = salah.hour * 60 + salah.minute;
+        if (currentMinutes < salahMinutes) {
+          return salah.id;
+        }
+      }
+      // After Isha (9:00 PM), the next available Jamaat is Fajr
+      return 'fajr';
+    }
+
+    function formatBanglaLiveTime(now) {
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const seconds = String(now.getSeconds()).padStart(2, '0');
+      let period = 'রাত';
+      if (hours >= 4 && hours < 6) period = 'ভোর';
+      else if (hours >= 6 && hours < 12) period = 'সকাল';
+      else if (hours >= 12 && hours < 15) period = 'দুপুর';
+      else if (hours >= 15 && hours < 17) period = 'বিকেল';
+      else if (hours >= 17 && hours < 19) period = 'সন্ধ্যা';
+
+      let displayHour = hours % 12;
+      if (displayHour === 0) displayHour = 12;
+      return `বর্তমান সময়: ${period} ${toBanglaDigits(displayHour)}:${toBanglaDigits(minutes)}:${toBanglaDigits(seconds)}`;
+    }
+
+    function renderSalahTimetable() {
+      const now = new Date();
+      const nextSalahId = getNextSalahId(now);
+      const clockEl = document.getElementById('liveClockDisplay');
+      if (clockEl) {
+        clockEl.textContent = formatBanglaLiveTime(now);
+      }
+
+      const container = document.getElementById('salahBoxesContainer');
+      if (!container) return;
+
+      container.innerHTML = SALAH_SCHEDULE.map(salah => {
+        const isNext = salah.id === nextSalahId;
+        return `
+          <div class="salah-box ${isNext ? 'next-salah' : ''}">
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <span class="text-xl sm:text-2xl font-bold" style="color: var(--text-primary);">
+                ${salah.name}
+              </span>
+              ${isNext ? `<span class="next-badge">পরবর্তী জামায়াত</span>` : ''}
+            </div>
+            <div class="salah-right">
+              <span class="text-xl sm:text-2xl font-extrabold" style="color: var(--accent-green);">
+                ${salah.timeText}
+              </span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Update clock & next salah every second
+    setInterval(() => {
+      if (currentPage === 'timetable') {
+        renderSalahTimetable();
+      }
+    }, 1000);
+
+    // ==================== 7. BOOK LIST & CATEGORY DROPDOWN CHECKBOX ====================
+    const dropdownToggleBtn = document.getElementById('dropdownToggleBtn');
+    const dropdownMenuPanel = document.getElementById('dropdownMenuPanel');
+    const dropdownArrowIcon = document.getElementById('dropdownArrowIcon');
+    const categoryCheckboxesContainer = document.getElementById('categoryCheckboxesContainer');
+    const selectedCategoryLabel = document.getElementById('selectedCategoryLabel');
+    const bookSearchInput = document.getElementById('bookSearchInput');
+
+    function renderCategoryCheckboxes() {
+      categoryCheckboxesContainer.innerHTML = ALL_CATEGORIES.map((cat, idx) => {
+        const isChecked = selectedCategories.has(cat);
+        const count = cat === 'সব'
+          ? BOOKS_DATA.length
+          : BOOKS_DATA.filter(b => b.category === cat).length;
+        return `
+          <label class="flex items-center justify-between gap-3 px-3 py-2 rounded-lg cursor-pointer transition-colors"
+                 style="background-color: ${isChecked ? 'var(--badge-bg)' : 'transparent'};">
+            <div class="flex items-center gap-3">
+              <input
+                type="checkbox"
+                data-category="${cat}"
+                ${isChecked ? 'checked' : ''}
+                class="w-4 h-4 accent-green-600 rounded cursor-pointer"
+              />
+              <span class="text-base font-semibold" style="color: var(--text-primary);">${cat}</span>
+            </div>
+            <span class="text-sm font-bold px-2 py-0.5 rounded-full" style="background-color: var(--bg-elevated); color: var(--accent-green);">
+              ${toBanglaDigits(count)} টি
+            </span>
+          </label>
+        `;
+      }).join('');
+
+      // Attach listeners
+      categoryCheckboxesContainer.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+        checkbox.addEventListener('change', (e) => {
+          const cat = e.target.getAttribute('data-category');
+          if (cat === 'সব') {
+            selectedCategories.clear();
+            selectedCategories.add('সব');
+          } else {
+            selectedCategories.delete('সব');
+            if (e.target.checked) {
+              selectedCategories.add(cat);
+            } else {
+              selectedCategories.delete(cat);
+            }
+            if (selectedCategories.size === 0) {
+              selectedCategories.add('সব');
+            }
+          }
+          updateDropdownLabel();
+          renderCategoryCheckboxes();
+          renderBooksList();
+        });
+      });
+    }
+
+    function updateDropdownLabel() {
+      if (selectedCategories.has('সব')) {
+        selectedCategoryLabel.textContent = 'সব (সকল ক্যাটাগরির বই)';
+      } else {
+        const list = Array.from(selectedCategories);
+        selectedCategoryLabel.textContent = list.join(', ');
+      }
+    }
+
+    dropdownToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isHidden = dropdownMenuPanel.classList.toggle('hidden');
+      dropdownArrowIcon.style.transform = isHidden ? 'rotate(0deg)' : 'rotate(180deg)';
+    });
+
+    document.addEventListener('click', (e) => {
+      const wrapper = document.getElementById('categoryDropdownWrapper');
+      if (wrapper && !wrapper.contains(e.target)) {
+        dropdownMenuPanel.classList.add('hidden');
+        dropdownArrowIcon.style.transform = 'rotate(0deg)';
+      }
+    });
+
+    bookSearchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderBooksList();
+    });
+
+    function renderBooksList() {
+      const container = document.getElementById('booksListContainer');
+      const countBadge = document.getElementById('bookCountBadge');
+      if (!container) return;
+
+      const filtered = BOOKS_DATA.filter(book => {
+        const matchesCat = selectedCategories.has('সব') || selectedCategories.has(book.category);
+        const matchesSearch = !searchQuery ||
+          book.title.toLowerCase().includes(searchQuery) ||
+          book.category.toLowerCase().includes(searchQuery);
+        return matchesCat && matchesSearch;
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${toBanglaDigits(filtered.length)} (${filtered.length})`;
+      }
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="surface-card p-8 text-center">
+            <p class="text-lg font-semibold" style="color: var(--text-secondary);">
+              এই ক্যাটাগরি বা অনুসন্ধানে কোনো বই পাওয়া যায়নি।
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = filtered.map((book, index) => {
+        const serialNum = index + 1;
+        return `
+          <div class="book-row">
+            <div class="flex items-start sm:items-center gap-3.5">
+              <span class="serial-circle">${serialNum}.</span>
+              <div>
+                <h3 class="text-base sm:text-lg font-bold leading-snug" style="color: var(--text-primary);">
+                  ${book.title}
+                </h3>
+              </div>
+            </div>
+            <span class="category-badge self-end sm:self-center">
+              ${book.category}
+            </span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // ==================== 8. PWA INSTALL & DOWNLOAD LOGIC ====================
+    let deferredInstallPrompt = null;
+    const installAppBtn = document.getElementById('installAppBtn');
+    const installModal = document.getElementById('installModal');
+    const closeInstallModalBtn = document.getElementById('closeInstallModalBtn');
+
+    // Setup dynamic Web App Manifest for Chrome PWA installability
+    (function setupPWA() {
+      try {
+        const iconSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="96" fill="#071326"/><path d="M256 96l120 88v216H136V184z" fill="#22c55e"/><circle cx="256" cy="240" r="44" fill="#071326"/></svg>`;
+        const iconDataUrl = 'data:image/svg+xml;utf8,' + encodeURIComponent(iconSvg);
+        const manifestObj = {
+          name: 'কাজী নজরুল ইসলাম হল মসজিদ, বুয়েট',
+          short_name: 'নজরুল হল মসজিদ',
+          description: 'কাজী নজরুল ইসলাম হল মসজিদের জামায়াতের সময়সূচী ও লাইব্রেরির বইয়ের তালিকা',
+          start_url: window.location.href,
+          display: 'standalone',
+          background_color: '#071326',
+          theme_color: '#15803d',
+          icons: [
+            { src: iconDataUrl, sizes: '192x192 512x512', type: 'image/svg+xml', purpose: 'any maskable' }
+          ]
+        };
+        const manifestLink = document.createElement('link');
+        manifestLink.rel = 'manifest';
+        manifestLink.href = '/manifest.json';
+        document.head.appendChild(manifestLink);
+
+        if ('serviceWorker' in navigator && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')) {
+          navigator.serviceWorker.register('/sw.js').catch(() => {});
+        }
+      } catch (e) {}
+    })();
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferredInstallPrompt = e;
+    });
+
+    function triggerStandaloneAppDownload() {
+      try {
+        const htmlContent = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+        const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'kazi_nazrul_islam_hall_mosque.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1500);
+      } catch (e) {}
+    }
+
+    installAppBtn.addEventListener('click', async () => {
+      if (deferredInstallPrompt) {
+        deferredInstallPrompt.prompt();
+        try {
+          await deferredInstallPrompt.userChoice;
+        } catch (e) {}
+        deferredInstallPrompt = null;
+      } else {
+        triggerStandaloneAppDownload();
+        installModal.classList.remove('hidden');
+      }
+    });
+
+    closeInstallModalBtn.addEventListener('click', () => {
+      installModal.classList.add('hidden');
+    });
+
+    installModal.addEventListener('click', (e) => {
+      if (e.target === installModal) {
+        installModal.classList.add('hidden');
+      }
+    });
+
+    // Initialize views on load
+    renderSalahTimetable();
+    renderCategoryCheckboxes();
+    renderBooksList();
+  </script>
+</body>
+</html>

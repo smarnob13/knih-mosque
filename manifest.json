@@ -1,0 +1,17 @@
+{
+  "name": "কাজী নজরুল ইসলাম হল মসজিদ, বুয়েট",
+  "short_name": "নজরুল হল মসজিদ",
+  "description": "কাজী নজরুল ইসলাম হল মসজিদের জামায়াতের সময়সূচী ও লাইব্রেরির বইয়ের তালিকা",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071326",
+  "theme_color": "#15803d",
+  "icons": [
+    {
+      "src": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='96' fill='%23071326'/><path d='M256 96l120 88v216H136V184z' fill='%2322c55e'/><circle cx='256' cy='240' r='44' fill='%23071326'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
